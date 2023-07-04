@@ -40,9 +40,7 @@ function displayMovieDetails(movie) {
 function createMovieMenu(movies) {
   const filmList = document.getElementById('films');
 
-  // Remove the placeholder li element
-  const placeholderElement = document.getElementById('placeholder');
-  filmList.removeChild(placeholderElement);
+
 
   // Create li elements for each movie and add them to the menu
   movies.forEach(movie => {
