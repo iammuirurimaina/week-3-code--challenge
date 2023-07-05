@@ -9,7 +9,7 @@ fetch(' http://localhost:3000/films/1')
     console.error('Error:', error);
   });
 
-// Fetch all movies and create a menu on the left side of the page
+
 fetch(' http://localhost:3000/films')
   .then(response => response.json())
   .then(movies => {
@@ -32,7 +32,7 @@ function displayMovieDetails(movie) {
   movieRuntime.textContent = `Runtime: ${movie.runtime} mins`;
   movieShowtime.textContent = `Showtime: ${movie.showtime}`;
   const ticketsSold = movie.tickets_sold;
-  const availableTickets = movie.capacity - ticketsSold;
+  const availableTickets = movie.capacity - ticketsSold;//calculate available tickets
   movieAvailableTickets.textContent = `Available Tickets: ${availableTickets}`;
 }
 
@@ -46,7 +46,7 @@ function createMovieMenu(movies) {
   movies.forEach(movie => {
     const li = document.createElement('li');
     li.textContent = movie.title;
-    li.classList.add('film', 'item');
+   
 
     // display movie details when a movie is clicked
     li.addEventListener('click', () => {
@@ -55,5 +55,24 @@ function createMovieMenu(movies) {
 
     filmList.appendChild(li);
   });
+  // create an event for adjusting tickets when the buy-ticket function is clicked
+const buyTicketButton = document.getElementById('buy-ticket');
+buyTicketButton.addEventListener('click', () => {
+  // Get the current movie details
+  const movieTitle = document.getElementById('movie-title').textContent;
+  const availableTicketsText = document.getElementById('movie-available-tickets').textContent;
+  //split the availableTickets into an array and replace the available tickets with the updated one after buy ticket is clicked
+  const availableTickets = parseInt(availableTicketsText.split(' ')[2]);
+
+  // confirm that there are still available tickets
+  if (availableTickets > 0) {
+    // Update the available tickets on the page
+    const updatedAvailableTicketsText = availableTicketsText.replace(availableTickets, availableTickets - 1);//subtract a ticket everytime it is clicked
+    document.getElementById('movie-available-tickets').textContent = updatedAvailableTicketsText;
+  } else {
+    // create an alert to show that the show is sold out if there are no available tickets
+    alert('This show is sold out!');
+  }
+});
 }
 

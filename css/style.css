@@ -3,6 +3,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: white;
+  }
+  #main-div{
+    display: flex;
   }
   
   body {
@@ -11,6 +15,7 @@
     color: #333;
     line-height: 1.5;
     padding: 20px;
+    
   }
   
   h1 {
@@ -25,11 +30,11 @@
     margin-bottom: 30px;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
   }
   
   #movie-poster {
-    width: 300px;
+    width: 500px;
     height: 450px;
     object-fit: cover;
     margin-bottom: 20px;
@@ -66,6 +71,8 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y:scroll;
+    overflow: auto;
   }
   #movies-menu li:hover{
     cursor: pointer;
