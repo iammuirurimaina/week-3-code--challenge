@@ -92,7 +92,7 @@
     padding: 10px;
     margin-bottom: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+   
   }
   
   .film:hover {
@@ -103,15 +103,5 @@
     color: #d63031;
   }
   
-  /* Responsive styles */
-  @media screen and (max-width: 768px) {
-    #movie-details {
-      padding: 10px;
-    }
   
-    #movie-poster {
-      width: 200px;
-      height: 300px;
-    }
-  }
   
